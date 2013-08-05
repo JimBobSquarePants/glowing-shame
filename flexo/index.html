@@ -1,0 +1,435 @@
+﻿<!DOCTYPE html>
+<!--/* ==|== Flexo ===============================================================
+    Author: James South
+    twitter : http://twitter.com/James_M_South
+    github : https://github.com/JimBobSquarePants/Flexo
+    Copyright (c) James South.
+    Licensed under the Apache License v2.0.
+    ============================================================================== */-->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Flexo. A responsive grid that helps you build mobile-first websites." />
+    <meta name="viewport" content="width=device-width" />
+    <!-- Old browsers -->
+    <!--[if lt IE 9 &!(IEMobile)]>
+    <link rel="stylesheet" href="css/flexo-legacy.css" />
+  <![endif]-->
+    <link rel="stylesheet" href="css/flexo.css" media="all and (min-width: 1em)" />
+    <script src="js/vendor/modernizr-2.6.1-development.js"></script>
+    <title>Flexo</title>
+    <style type="text/css">
+        /* Custom style just to aid with the demo */
+        @font-face {
+            font-family: 'gotham_mediumregular';
+            src: url('libs/fonts/gotham-medium/ufonts.com_gotham-medium-webfont.eot');
+            src: url('libs/fonts/gotham-medium/ufonts.com_gotham-medium-webfont.eot?#iefix') format('embedded-opentype'), url('libs/fonts/gotham-medium/ufonts.com_gotham-medium-webfont.woff') format('woff'), url('libs/fonts/gotham-medium/ufonts.com_gotham-medium-webfont.ttf') format('truetype'), url('libs/fonts/gotham-medium/ufonts.com_gotham-medium-webfont.svg#gotham_mediumregular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'BebasNeueRegular';
+            src: url('libs/fonts/bebas-neue/BebasNeue-webfont.eot');
+            src: url('libs/fonts/bebas-neue/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'), url('libs/fonts/bebas-neue/BebasNeue-webfont.woff') format('woff'), url('libs/fonts/bebas-neue/BebasNeue-webfont.ttf') format('truetype'), url('libs/fonts/bebas-neue/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+
+        body {
+            font-family: "gotham_mediumregular";
+            color: #333;
+            background-color: #ECF6FF;
+        }
+
+
+        .fork {
+            position: fixed;
+            z-index: 101;
+            top: 0;
+            right: 0;
+        }
+
+            .fork img {
+                border: 0;
+            }
+
+        .flexo {
+            font-family: "BebasNeueRegular";
+            color: #fff;
+            line-height: 100px;
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .lt-ie8 .flexo {
+            background-color: #808080;
+            border-radius: 100px;
+        }
+
+        .flexo:before {
+            position: absolute;
+            z-index: -1;
+            content: "";
+            -webkit-text-shadow: 0px -1px 0px #222;
+            text-shadow: 0px -1px 0px #222;
+            border-color: #333 transparent transparent;
+            border-style: solid;
+            border-width: 100px 100px 0;
+            left: -50px;
+            top: 10px;
+        }
+
+        .box {
+            padding: 1em;
+            background-color: #3FA9F5;
+            margin-bottom: 1em;
+            border: 1px solid #0087ca;
+        }
+
+        .tac {
+            text-align: center;
+        }
+
+        .container > header {
+            font-size: 1.17em;
+            font-weight: bold;
+        }
+
+        header h1 {
+            font-weight: 700;
+        }
+
+        .tweet {
+            padding-top: 1em;
+        }
+
+        .buttons {
+            margin-top: 1em;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: .5em 1em;
+            margin-bottom: 0;
+            font-size: 1em;
+            color: #454545;
+            text-align: center;
+            -webkit-text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+            vertical-align: middle;
+            cursor: pointer;
+            background-color: #f5f5f5;
+            background-image: -moz-linear-gradient(top, #f7f7f7 0%, #dddddd 100%); /* FF3.6+ */
+            background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7f7f7), color-stop(100%,#dddddd)); /* Chrome,Safari4+ */
+            background-image: -webkit-linear-gradient(top, #f7f7f7 0%,#dddddd 100%); /* Chrome10+,Safari5.1+ */
+            background-image: -o-linear-gradient(top, #f7f7f7 0%,#dddddd 100%); /* Opera 11.10+ */
+            background-image: -ms-linear-gradient(top, #f7f7f7 0%,#dddddd 100%); /* IE10+ */
+            background-image: linear-gradient(to bottom, #f7f7f7 0%,#dddddd 100%); /* W3C */
+            background-repeat: repeat-x;
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#dddddd',GradientType=0 ); /* IE6-9 */
+            border: 1px solid #cccccc;
+            border-color: #d2d2d2 #d2d2d2 #b3b3b3;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+            -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+            /* ie9 hack to prevent background color mix */
+            .btn:not(dummy) {
+                filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+            }
+
+        .lt-ie8 .btn,
+        .lt-ie8 .btn:hover,
+        .lt-ie8 .btn:active,
+        .lt-ie8 .btn.active {
+            display: inline;
+            margin-left: .3em;
+            zoom: 1;
+            /* disable border */
+            filter: chroma(color=#000000);
+        }
+
+            .lt-ie8 .btn:first-child {
+                margin-left: 0;
+            }
+
+        /* States */
+        .btn:hover,
+        .btn:active,
+        .btn.active,
+        .btn.disabled,
+        .btn[disabled] {
+            color: #454545;
+            background-color: #ebebeb;
+            /* disable the filter */
+            filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+        }
+
+        .btn:hover {
+            color: #454545;
+            text-decoration: none;
+            background-color: #dddddd;
+            /*slide the background up */
+            background-position: 0 -15px;
+            -webkit-transition: background-position 0.2s linear;
+            -moz-transition: background-position 0.2s linear;
+            -o-transition: background-position 0.2s linear;
+            transition: background-position 0.2s linear;
+        }
+
+        .btn:focus {
+            outline: thin dotted #d2d2d2;
+            outline: 5px auto -webkit-focus-ring-color;
+            outline-offset: -2px;
+        }
+
+        .btn:active,
+        .btn.active {
+            background-color: #f5f5f5;
+            background-image: none;
+            outline: 0;
+            -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+            -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn.disabled,
+        .btn[disabled] {
+            background-color: #ebebeb;
+            background-image: none;
+            opacity: 0.65;
+            filter: alpha(opacity=65);
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+            cursor: not-allowed;
+        }
+
+        .btn:visited {
+            color: #454545;
+        }
+
+        /* Prime button */
+        .btn-prime {
+            color: #fff;
+            -webkit-text-shadow: 0 -1px 0 #00527b;
+            text-shadow: 0 -1px 0 #00527b;
+            border-color: #0087ca #006da3 #00527b;
+            background: #00a1f1; /* Old browsers */
+            background: -moz-linear-gradient(top, #00a1f1 0%, #0087ca 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00a1f1), color-stop(100%,#0087ca)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top, #00a1f1 0%,#0087ca 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top, #00a1f1 0%,#0087ca 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top, #00a1f1 0%,#0087ca 100%); /* IE10+ */
+            background: linear-gradient(to bottom, #00a1f1 0%,#0087ca 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a1f1', endColorstr='#0087ca',GradientType=0 ); /* IE6-9 */
+        }
+
+            .btn-prime:hover {
+                color: #fff;
+                background: #0087ca;
+            }
+
+            .btn-prime:focus {
+                outline: thin dotted #00527b;
+            }
+
+            .btn-prime.active,
+            .btn-prime:active {
+                color: #fff;
+                background-color: #0caeff;
+            }
+
+            .btn-prime:visited {
+                color: #fff;
+            }
+    </style>
+</head>
+<body>
+    <a class="fork" href="https://github.com/JimBobSquarePants/Flexo" rel="external">
+        <img src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+    </a>
+    <div class="page">
+        <div class="container tac">
+            <header>
+                <h1 class="flexo">Flexo 
+                </h1>
+                <p>
+                    Flexo is a responsive grid that helps you build mobile-first websites. 
+                </p>
+            </header>
+            <div class="row">
+                <div class="clmn1">
+                    <div class="box"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="clmn2">
+                    <div class="box"></div>
+                </div>
+                <div class="clmn2">
+                    <div class="box"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="clmn3">
+                    <div class="box"></div>
+                </div>
+                <div class="clmn3">
+                    <div class="box"></div>
+                </div>
+                <div class="clmn3">
+                    <div class="box"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="clmn4">
+                    <div class="box"></div>
+                </div>
+                <div class="clmn4">
+                    <div class="box"></div>
+                </div>
+                <div class="clmn4">
+                    <div class="box"></div>
+                </div>
+                <div class="clmn4">
+                    <div class="box"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="clmn5">
+                    <div class="box"></div>
+                </div>
+                <div class="clmn5">
+                    <div class="box"></div>
+                </div>
+                <div class="clmn5">
+                    <div class="box"></div>
+                </div>
+                <div class="clmn5">
+                    <div class="box"></div>
+                </div>
+                <div class="clmn5">
+                    <div class="box"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="clmn5">
+                    <div class="box"></div>
+                </div>
+                <div class="clmn4-5">
+                    <div class="box"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="clmn2-5">
+                    <div class="box"></div>
+                </div>
+                <div class="clmn3-5">
+                    <div class="box"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="clmn5">
+                    <div class="box"></div>
+                </div>
+                <div class="clmn3-5">
+                    <div class="box"></div>
+                </div>
+                <div class="clmn5">
+                    <div class="box"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="clmn2-3">
+                    <div class="box"></div>
+                </div>
+                <div class="clmn3">
+                    <div class="box"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="clmn3">
+                    <div class="box"></div>
+                </div>
+                <div class="clmn2-3">
+                    <div class="box"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="clmn4">
+                    <div class="box"></div>
+                </div>
+                <div class="clmn3-4">
+                    <div class="box"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="clmn4">
+                    <div class="box"></div>
+                </div>
+                <div class="clmn2">
+                    <div class="box"></div>
+                </div>
+                <div class="clmn4">
+                    <div class="box"></div>
+                </div>
+            </div>
+            <div class="row buttons">
+                <div class="clmn2">
+                    <a href="https://raw.github.com/JimBobSquarePants/Flexo/2.0.1/css/flexo.css" class="btn btn-prime" target="_blank">Flexo v2.0.1</a>
+                    <p>IE 9+, Firefox, Safari, Opera, Chrome</p>
+                </div>
+                <div class="clmn2">
+                    <a href="https://raw.github.com/JimBobSquarePants/Flexo/1.1.4/css/flexo-legacy.css" class="btn" target="_blank">Flexo Legacy v1.1.4</a>
+                    <p>IE 7, IE 8</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="clmn4-5">
+                    <p>
+                        &copy; James South
+                    </p>
+                    <p>
+                        Licensed under the 
+        <a href="http://www.apache.org/licenses/LICENSE-2.0" rel="external">Apache License, Version 2.0</a>
+                    </p>
+                </div>
+                <div class="clmn5 tweet">
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://jimbobsquarepants.github.com/Flexo/" data-text="Flexo - A responsive css grid for building mobile-first websites." data-via="James_M_South" data-hashtags="flexo,css,responsive">Tweet</a>
+                    <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-34059159-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</body>
+</html>
