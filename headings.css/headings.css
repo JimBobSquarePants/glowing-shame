@@ -1,0 +1,181 @@
+﻿/*
+ * James South 
+ *
+ * What follows is an experiment in replicating the nested header styling of modern browsers.
+ * potentially allowing us to normalise html5 styles in ie7 and ie8.
+ *
+ * I would NEVER use this in production.
+ *
+ * Based on a combination of very hard work by Christopher Boone and Johnathan Neal 
+ * and analysis of the individual useragent stylesheets.
+ *
+ * Detailed information about this CSS: 
+ * github.com/cboone/hypsometric-css/blob/master/html5/html5-defaults.css#L426
+ * mxr.mozilla.org/mozilla-central/source/layout/style/html.css?raw=1
+ * trac.webkit.org/browser/trunk/Source/WebCore/css/html.css
+ * www.iecss.com
+ *
+ * ==|== headings ==========================================================
+ */
+
+h1,.h1 {
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
+  margin: .67em 0;
+  page-break-after: avoid;
+}
+
+/* Some of the following combinations might be unnecessary or impossible. */
+h2,.h2,
+article h1, aside h1, nav h1, section h1 {
+  display: block;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: .83em 0;
+  page-break-after: avoid;
+}
+
+h3,.h3,
+article aside h1, article nav h1, article section h1,
+aside article h1, aside nav h1, aside section h1,
+nav article h1, nav aside h1, nav section h1,
+section article h1, section aside h1, section nav h1, section section h1 {
+  display: block;
+  font-size: 1.17em;
+  font-weight: bold;
+  margin: 1em 0;
+  page-break-after: avoid;
+}
+
+h4,.h4,
+article aside nav h1, article aside section h1,
+article nav aside h1, article nav section h1,
+article section aside h1, article section nav h1, article section section h1,
+aside article nav h1, aside article section h1,
+aside nav article h1, aside nav section h1,
+aside section article h1, aside section nav h1, aside section section h1,
+nav article aside h1, nav article section h1,
+nav aside article h1, nav aside section h1,
+nav section article h1, nav section aside h1, nav section section h1,
+section article aside h1, section article nav h1, section article section h1,
+section aside article h1, section aside nav h1, section aside section h1,
+section nav article h1, section nav aside h1, section nav section h1,
+section section article h1, section section aside h1, section section nav h1, section section section h1 {
+  display: block;
+  font-size: 1.00em;
+  font-weight: bold;
+  margin: 1.33em 0;
+  page-break-after: avoid;
+}
+
+h5,.h5,
+article aside nav section h1, article aside section nav h1, article aside section section h1,
+article nav aside section h1, article nav section aside h1, article nav section section h1,
+article section aside nav h1, article section nav aside h1, article section section aside h1, article section section nav h1, article section section section h1,
+aside article nav section h1, aside article section nav h1, aside article section section h1,
+aside nav article section h1, aside nav section article h1, aside nav section section h1,
+aside section article nav h1, aside section article section h1, aside section nav article h1, aside section nav section h1,
+aside section section article h1, aside section section nav h1, aside section section section h1,
+nav article aside section h1, nav article section aside h1, nav article section section h1,
+nav aside article section h1, nav aside section article h1, nav aside section section h1,
+nav section article aside h1, nav section article section h1, nav section aside article h1, nav section aside section h1,
+nav section section article h1, nav section section aside h1, nav section section section h1,
+section article aside nav h1, section article aside section h1,
+section article nav aside h1, section article nav section h1,
+section article section aside h1, section article section nav h1, section article section section h1,
+section aside article nav h1, section aside article section h1,
+section aside nav article h1, section aside nav section h1,
+section aside section article h1, section aside section nav h1, section aside section section h1,
+section nav article aside h1, section nav article section h1,
+section nav aside article h1, section nav aside section h1,
+section nav section article h1, section nav section aside h1, section nav section section h1,
+section section article aside h1, section section article nav h1, section section article section h1,
+section section aside article h1, section section aside nav h1, section section aside section h1,
+section section nav article h1, section section nav aside h1, section section nav section h1,
+section section section article h1, section section section aside h1, section section section nav h1, section section section section h1 {
+  display: block;
+  font-size: 0.83em;
+  font-weight: bold;
+  margin: 1.67em 0;
+  page-break-after: avoid;
+}
+
+h6,.h6,
+article aside nav section section h1,
+article aside section nav section h1,
+article aside section section section h1,
+article nav aside section h1,
+article nav section aside section h1,
+article nav section section section h1,
+article section aside nav section h1,
+article section nav aside section h1,
+article section section aside section h1,
+article section section nav section h1,
+article section section section section h1,
+aside article nav section section h1,
+aside article section nav section h1,
+aside article section section section h1,
+aside nav article section section h1,
+aside nav section article section h1,
+aside nav section section section h1,
+aside section article nav section h1,
+aside section article section section h1,
+aside section nav article section h1,
+aside section nav section section h1,
+aside section section article section h1,
+aside section section nav section h1,
+aside section section section section h1,
+nav article aside section section h1,
+nav article section aside section h1,
+nav article section section section h1,
+nav aside article section section h1,
+nav aside section article section h1,
+nav aside section section section h1,
+nav section article aside section h1,
+nav section article section section h1,
+nav section aside article section h1,
+nav section aside section section h1,
+nav section section article section h1,
+nav section section aside section h1,
+nav section section section section h1,
+section article aside nav section h1,
+section article aside section section h1,
+section article nav aside section h1,
+section article nav section section h1,
+section article section aside section h1,
+section article section nav section h1,
+section article section section section h1,
+section aside article nav section h1,
+section aside article section section h1,
+section aside nav article section h1,
+section aside nav section section h1,
+section aside section article section h1,
+section aside section nav section h1,
+section aside section section section h1,
+section nav article aside section h1,
+section nav article section section h1,
+section nav aside article section h1,
+section nav aside section section h1,
+section nav section article section h1,
+section nav section aside section h1,
+section nav section section section h1,
+section section article aside section h1,
+section section article nav section h1,
+section section article section section h1,
+section section aside article section h1,
+section section aside nav section h1,
+section section aside section section h1,
+section section nav article section h1,
+section section nav aside section h1,
+section section nav section section h1,
+section section section article section h1,
+section section section aside section h1,
+section section section nav section h1,
+section section section section section h1 {
+  display: block;
+  font-size: 0.67em;
+  font-weight: bold;
+  margin: 2.33em 0;
+  page-break-after: avoid;
+}
